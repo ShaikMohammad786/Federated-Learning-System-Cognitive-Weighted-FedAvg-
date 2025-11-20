@@ -1,0 +1,54 @@
+services:
+  orchestrator:
+    build: .
+    environment:
+      - EXCHANGE_DIR=/workspace/exchange
+      - HF_HOME=/workspace/.cache/huggingface
+      - TRANSFORMERS_CACHE=/workspace/.cache/huggingface
+    volumes:
+      - ./:/workspace
+      - ./exchange:/workspace/exchange
+      - ./data:/workspace/data:ro
+      - ./logs:/workspace/logs
+    command: ["python", "orchestrator.py"]
+    deploy:
+      resources:
+        limits:
+          memory: 1024m
+    # Force CPU-only
+    devices: []
+  client:
+    build: .
+    environment:
+      - EXCHANGE_DIR=/workspace/exchange
+      - HF_HOME=/workspace/.cache/huggingface
+      - TRANSFORMERS_CACHE=/workspace/.cache/huggingface
+    volumes:
+      - ./:/workspace
+      - ./exchange:/workspace/exchange
+      - ./data:/workspace/data:ro
+      - ./logs:/workspace/logs
+    command: ["python", "client.py"]
+    deploy:
+      resources:
+        limits:
+          memory: 768m
+    devices: []
+  dashboard:
+    build: .
+    environment:
+      - LOG_DIR=/workspace/logs
+      - EXCHANGE_DIR=/workspace/exchange
+    volumes:
+      - ./:/workspace
+      - ./exchange:/workspace/exchange
+      - ./logs:/workspace/logs
+    command: ["streamlit", "run", "dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+

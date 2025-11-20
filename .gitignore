@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# HuggingFace / model caches
+.cache/
+huggingface/
+.cache/huggingface/
+
+# Data & artifacts
+data/
+logs/
+exchange/
+checkpoints/
+*.pt
+
+# Env / OS stuff
+.env
+.venv/
+venv/
+.envrc
+.DS_Store
+
+# Streamlit / misc
+.streamlit/
