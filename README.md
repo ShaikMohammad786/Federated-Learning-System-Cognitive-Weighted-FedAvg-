@@ -243,26 +243,6 @@ Key settings include:
 
 ---
 
-# 🎯 9. Why This Project Stands Out
-
-- True DPO-based Federated Value Alignment  
-- Real LoRA adapter aggregation  
-- Weighted update strategy (FCCL)  
-- Multi-client distributed simulation  
-- High-quality monitoring & observability  
-- Modular, production-style architecture  
-- Reproducible evaluation pipeline  
-- Research-grade implementation  
-
-This is not a toy FL experiment — it is a fully engineered system.
-
----
-
-# 📄 10. Resume-Ready Summary
-
-> Built a fully modular federated GPT-2 training system using LoRA adapters, non-IID client datasets, DPO-based value alignment, and a novel FCCL weighting algorithm for contribution-aware aggregation. Implemented a multi-client Docker simulation, live monitoring dashboard, and a complete evaluation pipeline.
-
----
 
 # 🪪 License  
 MIT License.
